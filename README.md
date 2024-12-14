@@ -33,7 +33,7 @@ To get started with the **FastPix Python SDK**, ensure you have the following:
 To install the SDK, you can use pip:
 
 ```bash
-pip3 install python_async_api
+pip3 install python-test-video-async  
 ```
 
 # Basic Usage:
@@ -41,7 +41,7 @@ pip3 install python_async_api
 ## Importing the SDK
 
 ```python
-from python_async_api.client import VideoSDKClient
+from python_test_video_async import videoSDKClient
 ```
 
 # Initialization:
@@ -49,7 +49,7 @@ from python_async_api.client import VideoSDKClient
 Initialize the FastPix SDK with your API credentials.
 
 ```python
-from python_async_api.client import VideoSDKClient
+from python_test_video_async.client import VideoSDKClient
 
 client = VideoSDKClient(username="your-access-token-id", password="your-secret-key")
 ```
@@ -59,7 +59,7 @@ client = VideoSDKClient(username="your-access-token-id", password="your-secret-k
 Below is an example of configuring `FastPix Python SDK` into your project.
 
 ```python
-from python_async_api.client import VideoSDKClient
+from python_test_video_async.client import VideoSDKClient
  
 client = VideoSDKClient(username=username, password=password)
       
