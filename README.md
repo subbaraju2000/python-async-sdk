@@ -60,17 +60,31 @@ Below is an example of configuring `FastPix Python SDK` into your project.
 
 ```python
 from python_test_video_async.client import VideoSDKClient
+import asyncio  # Import asyncio to run the event loop
  
-client = VideoSDKClient(username=username, password=password)
-      
-try:
-    media = await client.media.get_all()
-    print("Media:", media)
-except Exception as e:
-    print(f"Error fetching media: {str(e)}")
+# Initialize the VideoSDKClient with your credentials
+client = VideoSDKClient(username="befec73d-08db-484a-a60f-260a4ebabeb2", password="2f66986d-85a9-429f-8070-d8f2db92a927")
+
+async def main():
+    # Define the parameters for the media request
+    mediaFromDeviceRequest = {
+        "limit": 1,
+        "offset": 1,
+        "orderBy": "desc",
+    }
+ 
+    try:
+        # Fetch the media assets using the `get_all` method of the `client.media` object
+        mediaFromDeviceResponse = await client.media.get_all(mediaFromDeviceRequest)
+        
+        # Print the fetched media
+        print("Media Response:", mediaFromDeviceResponse)
+    
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
  
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())  # Run the main function inside the event loop
 ```
 
 # Usage:
