@@ -29,35 +29,35 @@ async def make_request(method, endpoint, headers=None, data=None, params=None):
             if method == "GET":
                 async with session.get(url, headers=headers, params=params) as response:
 
-                    if response.status_code in [200, 201]:
+                    if response.status in [200, 201]:
                         return await response.json()
                     else:
                         raise APIError(f"Request failed with status {response.status}: {await response.text()}")
 
             elif method == "POST":
                 async with session.post(url, headers=headers, json=data) as response:
-                    if response.status_code in [200, 201]:
+                    if response.status in [200, 201]:
                         return await response.json()
                     else:
                         raise APIError(f"Request failed with status {response.status}: {await response.text()}")
 
             elif method == "PATCH":
                 async with session.patch(url, headers=headers, json=data) as response:
-                    if response.status_code in [200, 201]:
+                    if response.status in [200, 201]:
                         return await response.json()
                     else:
                         raise APIError(f"Request failed with status {response.status}: {await response.text()}")
 
             elif method == "PUT":
                 async with session.put(url, headers=headers, json=data) as response:
-                    if response.status_code in [200, 201]:
+                    if response.status in [200, 201]:
                         return await response.json()
                     else:
                         raise APIError(f"Request failed with status {response.status}: {await response.text()}")
 
             elif method == "DELETE":
                 async with session.delete(url, headers=headers, params=params) as response:
-                    if response.status_code in [200, 201]:
+                    if response.status in [200, 201]:
                         return await response.json()
                     else:
                         raise APIError(f"Request failed with status {response.status}: {await response.text()}")
