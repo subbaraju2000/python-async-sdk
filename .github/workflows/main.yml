@@ -3,7 +3,7 @@ name: Release to PyPi
 on:
   push:
     branches:
-      - main  # Trigger the workflow on push to the main branch
+      - main  
 
 jobs:
   build:
