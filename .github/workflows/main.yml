@@ -31,5 +31,5 @@ jobs:
       - name: Publish package
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.pyi_token }}
+          TWINE_PASSWORD: ${{ secrets.token }}
         run: twine upload dist/*
