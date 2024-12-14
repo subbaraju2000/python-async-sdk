@@ -3,34 +3,34 @@ name: Release to PyPi
 on:
   push:
     branches:
-      - main  # Trigger the workflow on push to the main branchs
+      - main  # Trigger the workflow on push to the main branch
 
 jobs:
   build:
     name: Release to PyPi
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Check out code
         uses: actions/checkout@v2
         
-      - name: Install Python 3.x
-        uses: actions/setup-python@v1
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v2
         with:
           python-version: '3.11.x'
 
-      - name: Install Python Dependencies
-        run: python setup.py install
-
       - name: Install packaging dependencies
-        run: pip install --user --upgrade setuptools wheel twine
-        
+        run: pip install --upgrade setuptools wheel twine
+
+      - name: Install Python dependencies
+        run: pip install .
+
       - name: Build Package
         run: python setup.py sdist bdist_wheel
-        
+
       - name: Remove .egg files
         run: rm dist/*.egg
-        
+
       - name: Publish package
         env:
           TWINE_USERNAME: __token__
