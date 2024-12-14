@@ -28,9 +28,6 @@ jobs:
       - name: Build Package
         run: python setup.py sdist bdist_wheel
 
-      - name: Remove .egg files
-        run: rm dist/*.egg
-
       - name: Publish package
         env:
           TWINE_USERNAME: __token__
